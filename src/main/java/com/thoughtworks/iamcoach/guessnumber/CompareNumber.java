@@ -7,11 +7,11 @@ public class CompareNumber {
         int numberB = 0;
 
         for (int i = 0; i < answer.length(); i++){
+
             if((answer.charAt(i)+"").equals(input.charAt(i)+"")){
                 numberA += 1;
             }else if(answer.contains(input.charAt(i)+"")){
                 numberB += 1;
-
             }
         }
         return numberA+"A"+numberB+"B";
