@@ -41,4 +41,11 @@ public class CompareNumberTest {
 
         assertThat(result).isEqualTo("0A0B");
     }
+
+    @Test
+    public void result_should_have_A_and__B(){
+        String result = compareNumber.compare("1243","1234");
+
+        assertThat(result).isEqualTo("2A2B");
+    }
 }
