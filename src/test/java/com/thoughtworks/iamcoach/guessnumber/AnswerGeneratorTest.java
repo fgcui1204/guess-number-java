@@ -7,6 +7,8 @@ import org.mockito.internal.matchers.Null;
 import java.util.*;
 
 import static org.fest.assertions.api.Assertions.assertThat;
+import static org.mockito.Mockito.mock;
+import static org.mockito.Mockito.when;
 
 
 public class AnswerGeneratorTest {
@@ -14,6 +16,8 @@ public class AnswerGeneratorTest {
     private AnswerGenerator answerGenerator;
     @Before
     public void init(){
+        Random random = mock(Random.class);
+        when(random.nextInt(10)).thenReturn(1,2,3,4);
         answerGenerator = new AnswerGenerator();
     }
 
@@ -60,6 +64,14 @@ public class AnswerGeneratorTest {
 
         assertThat(isRepeat).isEqualTo(false);
     }
+
+    @Test
+    public void result_should_be_random(){
+        String result = answerGenerator.generate();
+
+        assertThat(result).isEqualTo("1234");
+    }
+
 
 
 }
