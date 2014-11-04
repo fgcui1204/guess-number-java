@@ -2,11 +2,9 @@ package com.thoughtworks.iamcoach.guessnumber;
 
 import org.junit.Before;
 import org.junit.Test;
+import org.mockito.internal.matchers.Null;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.HashSet;
-import java.util.Set;
+import java.util.*;
 
 import static org.fest.assertions.api.Assertions.assertThat;
 
@@ -50,12 +48,17 @@ public class AnswerGeneratorTest {
 
         String result = answerGenerator.generate();
         boolean isRepeat = false;
+        String resultElements = "";
 
-        Set<String> resultSet = new HashSet<String>(Arrays.asList(result));
+        for(int i = 0;i < result.length(); i++){
+            if(resultElements.contains(result.charAt(i)+"")){
+                isRepeat = true;
+            }else{
+                resultElements += result.charAt(i);
+            }
+        }
 
-        isRepeat = resultSet.size() - result.length() > 0;
-
-        assertThat(isRepeat).isEqualTo(true);
+        assertThat(isRepeat).isEqualTo(false);
     }
 
 
