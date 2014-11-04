@@ -18,7 +18,7 @@ public class AnswerGeneratorTest {
     public void init(){
         Random random = mock(Random.class);
         when(random.nextInt(10)).thenReturn(1,2,3,4);
-        answerGenerator = new AnswerGenerator();
+        answerGenerator = new AnswerGenerator(random);
     }
 
     @Test
